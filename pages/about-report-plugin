@@ -29,7 +29,7 @@
     {
       "type": "paragraph",
       "id": "32560a511e00883b",
-      "text": "See [https://github.com/WardCunningham/Smallest-Federated-Wiki/tree/master/client/plugins/report GitHub] for plugin and server script source."
+      "text": "See [https://github.com/fedwiki/wiki-plugin-report GitHub] for plugin and server script source."
     },
     {
       "type": "paragraph",
@@ -794,6 +794,16 @@
       "type": "add",
       "after": "0a69690a768497ae",
       "date": 1357082362692
+    },
+    {
+      "type": "edit",
+      "id": "32560a511e00883b",
+      "item": {
+        "type": "paragraph",
+        "id": "32560a511e00883b",
+        "text": "See [https://github.com/fedwiki/wiki-plugin-report GitHub] for plugin and server script source."
+      },
+      "date": 1389185134816
     }
   ]
 }

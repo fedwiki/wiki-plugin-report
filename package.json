@@ -35,10 +35,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/paul90/wiki-plugin-report.git"
+    "url": "https://github.com/fedwiki/wiki-plugin-report.git"
   },
   "bugs": {
-    "url": "https://github.com/paul90/wiki-plugin-report/issues"
+    "url": "https://github.com/fedwiki/wiki-plugin-report/issues"
   },
   "engines": {
     "node": "0.10"
