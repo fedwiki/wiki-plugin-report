@@ -27,22 +27,22 @@
       "text": "The program expects to be run within a wiki farm using flat file conventions of the sinatra server. Environment variables can changes these expectations."
     },
     {
-      "type": "paragraph",
+      "type": "html",
       "id": "8e7616c28abd406e",
       "text": "<b>Farm</b>=<i>path</i> — Change the expected location of the farm data files. If unspecified, ../../../data/farm is used."
     },
     {
-      "type": "paragraph",
+      "type": "html",
       "id": "df7b087ed2e78479",
       "text": "<b>Site</b>=<i>domain</i>  — Change the internet domain name of the server. If unspecified, domain names come from the farm information. (Farm is ignored if Site is specified.)"
     },
     {
-      "type": "paragraph",
+      "type": "html",
       "id": "71cf71ff6958e819",
       "text": "<b>Port</b>=<i>:port</i>  — Change the expected server port number used forming hyperlinks in the report. If unspecified, hyperlinks will not include a port in their urls."
     },
     {
-      "type": "paragraph",
+      "type": "html",
       "id": "da1520367d56b2d1",
       "text": "<b>Sufix</b>=<i>word</i>  — Change the word expected to conclude page names used for reports. If unspecified, reports are expected to end with the word 'report'. The suffix must be specified in lower case but will match page names in any case."
     },
@@ -438,6 +438,47 @@
         "text": "For example, a laptop user running the sinatra server from the github project cloned into a home directory named wiki could run the script hourly from a cron job with the following single line crontab entry."
       },
       "date": 1357071291032
+    },
+    {
+      "type": "edit",
+      "id": "8e7616c28abd406e",
+      "item": {
+        "type": "html",
+        "id": "8e7616c28abd406e",
+        "text": "<b>Farm</b>=<i>path</i> — Change the expected location of the farm data files. If unspecified, ../../../data/farm is used."
+      },
+      "date": 1418371868140
+    },
+    {
+      "type": "edit",
+      "id": "df7b087ed2e78479",
+      "item": {
+        "type": "html",
+        "id": "df7b087ed2e78479",
+        "text": "<b>Site</b>=<i>domain</i>  — Change the internet domain name of the server. If unspecified, domain names come from the farm information. (Farm is ignored if Site is specified.)"
+      },
+      "date": 1418371869820
+    },
+    {
+      "type": "edit",
+      "id": "71cf71ff6958e819",
+      "item": {
+        "type": "html",
+        "id": "71cf71ff6958e819",
+        "text": "<b>Port</b>=<i>:port</i>  — Change the expected server port number used forming hyperlinks in the report. If unspecified, hyperlinks will not include a port in their urls."
+      },
+      "date": 1418371871692
+    },
+    {
+      "type": "edit",
+      "id": "da1520367d56b2d1",
+      "item": {
+        "type": "html",
+        "id": "da1520367d56b2d1",
+        "text": "<b>Sufix</b>=<i>word</i>  — Change the word expected to conclude page names used for reports. If unspecified, reports are expected to end with the word 'report'. The suffix must be specified in lower case but will match page names in any case."
+      },
+      "date": 1418371889067
     }
-  ]
+  ],
+  "plugin": "report"
 }

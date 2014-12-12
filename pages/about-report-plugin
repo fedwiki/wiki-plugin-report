@@ -32,9 +32,9 @@
       "text": "See [https://github.com/fedwiki/wiki-plugin-report GitHub] for plugin and server script source."
     },
     {
-      "type": "paragraph",
+      "type": "html",
       "id": "c845252e2f3218ee",
-      "text": "<h3> Schedules"
+      "text": "<h3>Schedules</h3>"
     },
     {
       "type": "paragraph",
@@ -804,6 +804,27 @@
         "text": "See [https://github.com/fedwiki/wiki-plugin-report GitHub] for plugin and server script source."
       },
       "date": 1389185134816
+    },
+    {
+      "type": "edit",
+      "id": "c845252e2f3218ee",
+      "item": {
+        "type": "html",
+        "id": "c845252e2f3218ee",
+        "text": "<h3> Schedules"
+      },
+      "date": 1418371842733
+    },
+    {
+      "type": "edit",
+      "id": "c845252e2f3218ee",
+      "item": {
+        "type": "html",
+        "id": "c845252e2f3218ee",
+        "text": "<h3>Schedules</h3>"
+      },
+      "date": 1418371851012
     }
-  ]
+  ],
+  "plugin": "report"
 }
