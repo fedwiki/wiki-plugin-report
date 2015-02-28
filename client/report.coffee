@@ -1,3 +1,10 @@
+###
+ * Federated Wiki : Report Plugin
+ *
+ * Licensed under the MIT license.
+ * https://github.com/fedwiki/wiki-plugin-report/blob/master/LICENSE.txt
+###
+
 enumerate = (keys...) ->
 	obj = {keys}
 	obj[k] = i+1 for k,i in keys
