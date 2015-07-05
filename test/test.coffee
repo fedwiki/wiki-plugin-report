@@ -1,4 +1,5 @@
-report = require './report'
+report = require '../client/report'
+expect = require 'expect.js'
 
 describe 'report plugin', ->
 

@@ -2,6 +2,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-git-authors');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   grunt.initConfig({
 
@@ -23,6 +24,15 @@ module.exports = function (grunt) {
       }
     },
 
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
+      }
+    },
+
     watch: {
       all: {
         files: ['client/*.coffee', 'server/*.coffee', 'test/*.coffee'],
@@ -31,7 +41,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build', ['coffee']);
+  grunt.registerTask('build', ['coffee', 'mochaTest']);
   grunt.registerTask('default', ['build']);
 
 };
