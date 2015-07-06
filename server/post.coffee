@@ -1,16 +1,19 @@
 child = require 'child_process'
 fs = require 'fs'
-report = require './report.js'
+report = require "#{__dirname}/../client/report.js"
 print = (arg...) -> console.log arg...
 
 
 
-# 0 * * * * (cd wiki/client/plugins/report; Port=:1111 /usr/local/bin/node post.js)
+# 0 * * * * Port=:3000 /usr/local/bin/node /usr/local/lib/node_modules/wiki/node_modules/wiki-plugin-report/server/post.js
+# Site=localhost Port=:3000 Debug=true Data=/Users/ward/.wiki /usr/local/bin/node post.js
 
 Site = process.env.Site or null
 Port = process.env.Port or ''
-Farm = process.env.Farm or '../../../data/farm' unless Site
+Farm = process.env.Farm or '.wiki' unless Site
+Data = process.env.Data or '.wiki' if Site
 Sufix = process.env.Sufix or 'report'
+Debug = process.env.Debug is 'true'
 
 
 
@@ -18,13 +21,15 @@ Sufix = process.env.Sufix or 'report'
 
 findPaths = (done) ->
   if Farm
-    child.exec "ls #{Farm}/*/pages/*-#{Sufix}", (err, stdout, stderr) ->
+    child.exec "/bin/ls #{Farm}/*/pages/*-#{Sufix}", (err, stdout, stderr) ->
+      return print 'findPaths (Farm)', err if err
       for path in stdout.split /\n/
         continue if path is ''
         [slug,x,site] = path.split('/').reverse()
         done path, site, slug
   else
-    child.exec "ls ../../../data/pages/*-#{Sufix}", (err, stdout, stderr) ->
+    child.exec "/bin/ls #{Data}/pages/*-#{Sufix}", (err, stdout, stderr) ->
+      return print 'findPaths (Site)', err if err
       for path in stdout.split /\n/
         continue if path is ''
         [slug] = path.split('/').reverse()
@@ -32,7 +37,7 @@ findPaths = (done) ->
 
 fetchPage = (path, done) ->
   text = fs.readFile path, 'utf8', (err, text) ->
-    return console.log ['fetchPage', path, err] if err
+    return print 'fetchPage', path, err if err
     done JSON.parse text
 
 findSchedule = (page) ->
@@ -105,8 +110,8 @@ sendmail = (pub) ->
   send.stderr.setEncoding 'utf8'
   send.stderr.on 'data', (data) -> output.push data
   send.on 'exit', (code) ->
-    print "sent #{pub.page.title} (#{pub.issue.interval}), code: #{code}"
-    print output.join ''
+    print "sent #{pub.page.title} (#{pub.issue.interval}), code: #{code}" if Debug
+    print output.join '' if output.length
 
 
 
@@ -115,9 +120,15 @@ sendmail = (pub) ->
 findPubs (pub) ->
   pub.now = new Date(2012,12-1,21,0,0,3)
   pub.now = new Date()
-  pub.period = 60
+  pub.period = 30
+  print pub.site, pub.slug if Debug
   if ready pub
     pub.summary = compose pub.page, report.advance(pub.now, pub.issue, -1)
-    unless pub.summary is ''
+    if pub.summary is ''
+      print "nothing to send" if Debug
+    else
       pub.message = enclose pub
       sendmail pub
+  else
+    print report.explain pub.issue if Debug
+
