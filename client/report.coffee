@@ -16,24 +16,24 @@ wdays = enumerate 'SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','S
 months = enumerate 'JANUARY','FEBUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'
 
 parse = (text) ->
-	schedule = []
-	issue = null
-	for word in text.match(/\S+/g) or []
-		try
-			if intervals[word]
-				schedule.push issue =
-					interval: word
-					recipients: []
-					offsets: []
-			else if months[word] or wdays[word] or hours[word]
-				issue.offsets.push word
-			else if word.match /@/
-				issue.recipients.push word
-			else
-			  schedule.push {trouble: word}
-		catch e
-			schedule.push {trouble: e.message}
-	schedule
+  schedule = []
+  issue = null
+  for word in text.match(/\S+/g) or []
+    try
+      if intervals[word]
+        schedule.push issue =
+          interval: word
+          recipients: []
+          offsets: []
+      else if months[word] or wdays[word] or hours[word]
+        issue.offsets.push word
+      else if word.match /@/
+        issue.recipients.push word
+      else
+        schedule.push {trouble: word}
+    catch e
+      schedule.push {trouble: e.message}
+  schedule
 
 human = (msecs) ->
   return "#{Math.floor msecs} milliseconds" if (secs = msecs/1000) < 2
