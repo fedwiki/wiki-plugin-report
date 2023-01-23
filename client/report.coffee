@@ -95,6 +95,6 @@ emit = ($item, item) ->
 	"""
 
 bind = ($item, item) ->
-	$item.dblclick -> wiki.textEditor $item, item
+	$item.on 'dblclick', () -> wiki.textEditor $item, item
 
 window.plugins.report = {emit, bind} if window?
