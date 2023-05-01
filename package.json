@@ -1,6 +1,6 @@
 {
   "name": "wiki-plugin-report",
-  "version": "0.3.0-rc.0",
+  "version": "0.3.0",
   "description": "Federated Wiki - Report Plug-in",
   "keywords": [
     "wiki",
